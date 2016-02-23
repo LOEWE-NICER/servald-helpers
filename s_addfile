@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ -z $SERVALINSTANCE_PATH ]; then
+	echo No SERVALINSTANCE_PATH set!!
+	exit 1
+fi
+
+if [ -z $1 ]; then
+	echo "Usage $0 <file>"
+	exit 1
+fi
+
+SID=`./servald id self | sed -n 3p`
+
+./servald rhizome add file $SID $1
+

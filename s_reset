@@ -1,0 +1,12 @@
+#!/bin/sh
+
+export SERVALINSTANCE_PATH=/tmp/serval
+
+rm -r $SERVALINSTANCE_PATH
+mkdir -p $SERVALINSTANCE_PATH
+
+echo "interfaces.0.match=*" > $SERVALINSTANCE_PATH/serval.conf
+echo "interfaces.0.socket_type=dgram" >> $SERVALINSTANCE_PATH/serval.conf
+echo "interfaces.0.type=ethernet" >> $SERVALINSTANCE_PATH/serval.conf
+echo "log.console.level=debug" >>  $SERVALINSTANCE_PATH/serval.conf
+
