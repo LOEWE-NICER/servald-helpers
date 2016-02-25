@@ -11,11 +11,11 @@ if [ -z $1 ]; then
 	exit 1
 fi
 
-SID=`./servald id self | sed -n 3p`
+SID=`$SERVAL_ROOT/servald id self | sed -n 3p`
 
 tar -zcvf /tmp/`basename $1`.tar.gz $1
 
-./servald rhizome add file $SID /tmp/`basename $1`.tar.gz
+$SERVAL_ROOT/servald rhizome add file $SID /tmp/`basename $1`.tar.gz
 
 rm /tmp/`basename $1`.tar.gz
 
